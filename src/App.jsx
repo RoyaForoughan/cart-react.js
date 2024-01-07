@@ -3,13 +3,14 @@ import ProductsPage from './pages/ProductsPage'
 import DetailsPage from './pages/DetailsPage'
 import CheckoutPage from './pages/CheckoutPage'
 import PageNotFound from './pages/404'
+import ProductsProvider from './context/ProductContext'
 
 function App() {
   
 
   return (
-    <>
-     <h1>My React Store</h1>
+    
+     <ProductsProvider>
      <Routes>
       <Route index element={<Navigate to='/products' replace/>}/>
       <Route path='/products' element={<ProductsPage/>}/>
@@ -17,7 +18,8 @@ function App() {
       <Route path='/checkout' element={<CheckoutPage/>}/>
       <Route path='/*' element={<PageNotFound/>}/>
      </Routes>
-    </>
+     </ProductsProvider>
+    
   )
 }
 
