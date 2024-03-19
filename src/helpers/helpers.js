@@ -44,10 +44,20 @@ const sumProducts = (products) =>{
         return {itemCounter , total}
 }
 
+const productQuantity = (state, id) => {
+    const index = state.selectItems.findIndex(item => item.id === id)
+    if(index === -1){
+        return  0 
+    }else{
+        return state.selectItems[index].quantity
+    }
+}
+
 export {shortenText ,
      searchProducts,
      filterProducts,
      createQueryObject ,
     getInitialQuery,
-    sumProducts
+    sumProducts,
+    productQuantity
 }

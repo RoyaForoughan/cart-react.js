@@ -1,4 +1,6 @@
 import {Routes , Route , Navigate} from 'react-router-dom'
+
+import Layout from './layout/Layout'
 import ProductsPage from './pages/ProductsPage'
 import DetailsPage from './pages/DetailsPage'
 import CheckoutPage from './pages/CheckoutPage'
@@ -12,6 +14,7 @@ function App() {
   return (
     <CartProvider>
      <ProductsProvider>
+      <Layout>
      <Routes>
       <Route index element={<Navigate to='/products' replace/>}/>
       <Route path='/products' element={<ProductsPage/>}/>
@@ -19,6 +22,7 @@ function App() {
       <Route path='/checkout' element={<CheckoutPage/>}/>
       <Route path='/*' element={<PageNotFound/>}/>
      </Routes>
+     </Layout>
      </ProductsProvider>
      </CartProvider>
   )
